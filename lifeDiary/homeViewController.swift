@@ -27,6 +27,14 @@ class homeViewController: UIViewController {
         print("user", user)
     }
     
+    @IBAction func mood(sender: AnyObject) {
+        //pick how the day was/how likely to live again
+        print("slider value", slider.value)
+        var mood = slider.value
+        //set the mood to core data
+    }
+    
+    
     @IBAction func more(sender: AnyObject) {
         //on click of the button segue passing the current core data model information to the next page
     }
