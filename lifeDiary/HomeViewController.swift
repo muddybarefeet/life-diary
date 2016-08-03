@@ -1,5 +1,5 @@
 //
-//  homeViewController.swift
+//  HomeViewController.swift
 //  lifeDiary
 //
 //  Created by Anna Rogers on 8/3/16.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class homeViewController: CoreDataTravelLocationViewController {
+class HomeViewController: CoreDataTravelLocationViewController {
     
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var slider: UISlider!

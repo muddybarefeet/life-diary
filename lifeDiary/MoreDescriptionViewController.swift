@@ -6,4 +6,8 @@
 //  Copyright © 2016 Anna Rogers. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MoreDescriptionViewController: CoreDataTravelLocationViewController {
+    
+}
