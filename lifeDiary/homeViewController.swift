@@ -18,7 +18,6 @@ class homeViewController: UIViewController {
     //3. set up slider
     //4. make and pass the core data model to the next view controller
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("view controller did load")

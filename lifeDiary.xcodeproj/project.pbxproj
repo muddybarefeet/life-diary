@@ -14,6 +14,11 @@
 		950C35D01D5222E2009710DD /* lifeDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35CF1D5222E2009710DD /* lifeDiaryTests.swift */; };
 		950C35DB1D5222E2009710DD /* lifeDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35DA1D5222E2009710DD /* lifeDiaryUITests.swift */; };
 		950C35EB1D52255B009710DD /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35EA1D52255B009710DD /* homeViewController.swift */; };
+		950C35F01D522AB5009710DD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 950C35EE1D522AB5009710DD /* Model.xcdatamodeld */; };
+		950C35F31D522E0A009710DD /* Moodlet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F11D522E0A009710DD /* Moodlet+CoreDataProperties.swift */; };
+		950C35F41D522E0A009710DD /* Moodlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F21D522E0A009710DD /* Moodlet.swift */; };
+		950C35F61D522F38009710DD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F51D522F38009710DD /* CoreDataStack.swift */; };
+		950C35F81D522F85009710DD /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F71D522F85009710DD /* CoreDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		950C35DA1D5222E2009710DD /* lifeDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lifeDiaryUITests.swift; sourceTree = "<group>"; };
 		950C35DC1D5222E2009710DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950C35EA1D52255B009710DD /* homeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		950C35EF1D522AB5009710DD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		950C35F11D522E0A009710DD /* Moodlet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Moodlet+CoreDataProperties.swift"; path = "../Moodlet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		950C35F21D522E0A009710DD /* Moodlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moodlet.swift; path = ../Moodlet.swift; sourceTree = "<group>"; };
+		950C35F51D522F38009710DD /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		950C35F71D522F85009710DD /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 		950C35B91D5222E2009710DD /* lifeDiary */ = {
 			isa = PBXGroup;
 			children = (
+				950C35ED1D522A9D009710DD /* models */,
 				950C35E81D52252A009710DD /* collections */,
 				950C35BA1D5222E2009710DD /* AppDelegate.swift */,
 				950C35BE1D5222E2009710DD /* Main.storyboard */,
@@ -129,8 +140,20 @@
 			isa = PBXGroup;
 			children = (
 				950C35EA1D52255B009710DD /* homeViewController.swift */,
+				950C35F71D522F85009710DD /* CoreDataViewController.swift */,
 			);
 			name = collections;
+			sourceTree = "<group>";
+		};
+		950C35ED1D522A9D009710DD /* models */ = {
+			isa = PBXGroup;
+			children = (
+				950C35EE1D522AB5009710DD /* Model.xcdatamodeld */,
+				950C35F11D522E0A009710DD /* Moodlet+CoreDataProperties.swift */,
+				950C35F21D522E0A009710DD /* Moodlet.swift */,
+				950C35F51D522F38009710DD /* CoreDataStack.swift */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950C35F31D522E0A009710DD /* Moodlet+CoreDataProperties.swift in Sources */,
 				950C35EB1D52255B009710DD /* homeViewController.swift in Sources */,
 				950C35BB1D5222E2009710DD /* AppDelegate.swift in Sources */,
+				950C35F81D522F85009710DD /* CoreDataViewController.swift in Sources */,
+				950C35F61D522F38009710DD /* CoreDataStack.swift in Sources */,
+				950C35F41D522E0A009710DD /* Moodlet.swift in Sources */,
+				950C35F01D522AB5009710DD /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +541,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		950C35EE1D522AB5009710DD /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				950C35EF1D522AB5009710DD /* Model.xcdatamodel */,
+			);
+			currentVersion = 950C35EF1D522AB5009710DD /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 950C35AF1D5222E2009710DD /* Project object */;
 }
