@@ -48,12 +48,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="29D-Eh-hUT">
-                                <rect key="frame" x="241" y="283" width="118" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="Hem-uw-EtO"/>
-                                </constraints>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llk-Vm-hSO">
                                 <rect key="frame" x="282" y="463" width="36" height="30"/>
                                 <state key="normal" title="More">
@@ -63,11 +57,17 @@
                                     <action selector="more:" destination="fPP-7C-7ya" eventType="touchUpInside" id="U8e-9S-60C"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="29D-Eh-hUT">
+                                <rect key="frame" x="192" y="285" width="217" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="213" id="Hem-uw-EtO"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.14921095749999999" green="0.76621809549999997" blue="0.72552637880000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="29D-Eh-hUT" firstAttribute="centerX" secondItem="rG6-Q5-J6I" secondAttribute="centerX" id="1YA-IM-zdm"/>
-                            <constraint firstItem="29D-Eh-hUT" firstAttribute="top" secondItem="rQS-SR-5hZ" secondAttribute="bottom" constant="49" id="ALH-PH-p29"/>
+                            <constraint firstItem="29D-Eh-hUT" firstAttribute="top" secondItem="rQS-SR-5hZ" secondAttribute="bottom" constant="51" id="ALH-PH-p29"/>
                             <constraint firstItem="Z6R-ea-0hA" firstAttribute="top" secondItem="llk-Vm-hSO" secondAttribute="bottom" constant="58" id="Etd-rG-45Y"/>
                             <constraint firstItem="rQS-SR-5hZ" firstAttribute="centerX" secondItem="rG6-Q5-J6I" secondAttribute="centerX" id="HdQ-kN-wfc"/>
                             <constraint firstItem="llk-Vm-hSO" firstAttribute="centerX" secondItem="rG6-Q5-J6I" secondAttribute="centerX" id="JAY-ma-2aY"/>
