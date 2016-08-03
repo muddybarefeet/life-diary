@@ -15,10 +15,10 @@
 		950C35DB1D5222E2009710DD /* lifeDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35DA1D5222E2009710DD /* lifeDiaryUITests.swift */; };
 		950C35EB1D52255B009710DD /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35EA1D52255B009710DD /* homeViewController.swift */; };
 		950C35F01D522AB5009710DD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 950C35EE1D522AB5009710DD /* Model.xcdatamodeld */; };
-		950C35F31D522E0A009710DD /* Moodlet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F11D522E0A009710DD /* Moodlet+CoreDataProperties.swift */; };
-		950C35F41D522E0A009710DD /* Moodlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F21D522E0A009710DD /* Moodlet.swift */; };
 		950C35F61D522F38009710DD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F51D522F38009710DD /* CoreDataStack.swift */; };
 		950C35F81D522F85009710DD /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F71D522F85009710DD /* CoreDataViewController.swift */; };
+		950C35FB1D523390009710DD /* Moodlet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35F91D523390009710DD /* Moodlet+CoreDataProperties.swift */; };
+		950C35FC1D523390009710DD /* Moodlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35FA1D523390009710DD /* Moodlet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +53,10 @@
 		950C35DC1D5222E2009710DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950C35EA1D52255B009710DD /* homeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		950C35EF1D522AB5009710DD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		950C35F11D522E0A009710DD /* Moodlet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Moodlet+CoreDataProperties.swift"; path = "../Moodlet+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		950C35F21D522E0A009710DD /* Moodlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moodlet.swift; path = ../Moodlet.swift; sourceTree = "<group>"; };
 		950C35F51D522F38009710DD /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		950C35F71D522F85009710DD /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
+		950C35F91D523390009710DD /* Moodlet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Moodlet+CoreDataProperties.swift"; path = "../Moodlet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		950C35FA1D523390009710DD /* Moodlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moodlet.swift; path = ../Moodlet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +148,9 @@
 		950C35ED1D522A9D009710DD /* models */ = {
 			isa = PBXGroup;
 			children = (
+				950C35F91D523390009710DD /* Moodlet+CoreDataProperties.swift */,
+				950C35FA1D523390009710DD /* Moodlet.swift */,
 				950C35EE1D522AB5009710DD /* Model.xcdatamodeld */,
-				950C35F11D522E0A009710DD /* Moodlet+CoreDataProperties.swift */,
-				950C35F21D522E0A009710DD /* Moodlet.swift */,
 				950C35F51D522F38009710DD /* CoreDataStack.swift */,
 			);
 			name = models;
@@ -290,12 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950C35F31D522E0A009710DD /* Moodlet+CoreDataProperties.swift in Sources */,
 				950C35EB1D52255B009710DD /* homeViewController.swift in Sources */,
 				950C35BB1D5222E2009710DD /* AppDelegate.swift in Sources */,
+				950C35FB1D523390009710DD /* Moodlet+CoreDataProperties.swift in Sources */,
 				950C35F81D522F85009710DD /* CoreDataViewController.swift in Sources */,
+				950C35FC1D523390009710DD /* Moodlet.swift in Sources */,
 				950C35F61D522F38009710DD /* CoreDataStack.swift in Sources */,
-				950C35F41D522E0A009710DD /* Moodlet.swift in Sources */,
 				950C35F01D522AB5009710DD /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
