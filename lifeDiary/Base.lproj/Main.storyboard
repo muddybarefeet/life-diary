@@ -27,7 +27,7 @@
         <!--Item 1-->
         <scene sceneID="A9h-vA-Hns">
             <objects>
-                <viewController id="fPP-7C-7ya" customClass="homeViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fPP-7C-7ya" customClass="HomeViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vbd-rQ-fTL"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6R-ea-0hA"/>
@@ -48,15 +48,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llk-Vm-hSO">
-                                <rect key="frame" x="282" y="463" width="36" height="30"/>
-                                <state key="normal" title="More">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="more:" destination="fPP-7C-7ya" eventType="touchUpInside" id="U8e-9S-60C"/>
-                                </connections>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="29D-Eh-hUT">
                                 <rect key="frame" x="192" y="285" width="217" height="31"/>
                                 <constraints>
@@ -68,6 +59,15 @@
                                     <action selector="mood:" destination="fPP-7C-7ya" eventType="valueChanged" id="7z9-bw-Rk7"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llk-Vm-hSO">
+                                <rect key="frame" x="284" y="463" width="32" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="more:" destination="fPP-7C-7ya" eventType="touchUpInside" id="U8e-9S-60C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14921095749999999" green="0.76621809549999997" blue="0.72552637880000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -86,11 +86,84 @@
                     <connections>
                         <outlet property="greeting" destination="7zY-AA-hpn" id="Wbo-1f-Q7D"/>
                         <outlet property="slider" destination="29D-Eh-hUT" id="nh5-m2-rem"/>
+                        <segue destination="Til-Hx-VMp" kind="show" identifier="descriptionPage1" id="9hh-Ej-heD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdr-IZ-TUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1155" y="166"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jMW-a9-r8w">
+            <objects>
+                <viewController id="ZUc-KW-WLP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nTd-hE-UJN"/>
+                        <viewControllerLayoutGuide type="bottom" id="g3y-b8-dYJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="190-5a-CWt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.94302138069999997" blue="0.6224071471" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gD3-SF-vVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2815" y="-264"/>
+        </scene>
+        <!--Basic Description View Controller-->
+        <scene sceneID="S6B-DT-GMb">
+            <objects>
+                <viewController id="Til-Hx-VMp" customClass="BasicDescriptionViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lGw-o9-6bC"/>
+                        <viewControllerLayoutGuide type="bottom" id="uMN-ph-4wP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IUf-dP-F68">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wia-eK-HxW">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="dqQ-E1-6jo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-BH-96C">
+                                <rect key="frame" x="256" y="450" width="88" height="30"/>
+                                <state key="normal" title="Tell me more">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why was your day good?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwj-cc-2n0">
+                                <rect key="frame" x="205" y="169" width="191" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.94302138069999997" blue="0.6224071471" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zwj-cc-2n0" firstAttribute="top" secondItem="lGw-o9-6bC" secondAttribute="bottom" constant="105" id="59e-J1-5LZ"/>
+                            <constraint firstItem="wia-eK-HxW" firstAttribute="centerY" secondItem="IUf-dP-F68" secondAttribute="centerY" id="Hbe-Ld-mXX"/>
+                            <constraint firstItem="wia-eK-HxW" firstAttribute="centerX" secondItem="Zwj-cc-2n0" secondAttribute="centerX" id="NsE-vh-mNM"/>
+                            <constraint firstItem="wia-eK-HxW" firstAttribute="top" secondItem="Zwj-cc-2n0" secondAttribute="bottom" constant="46" id="Qdi-NN-fHg"/>
+                            <constraint firstItem="wia-eK-HxW" firstAttribute="centerX" secondItem="IUf-dP-F68" secondAttribute="centerX" id="YqK-Dt-h6w"/>
+                            <constraint firstItem="6iv-BH-96C" firstAttribute="centerX" secondItem="Zwj-cc-2n0" secondAttribute="centerX" id="gjH-Mc-CWB"/>
+                            <constraint firstItem="uMN-ph-4wP" firstAttribute="top" secondItem="6iv-BH-96C" secondAttribute="bottom" constant="71" id="irp-0Z-DYF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="questionLabel" destination="Zwj-cc-2n0" id="4fe-6I-MAD"/>
+                        <segue destination="ZUc-KW-WLP" kind="show" identifier="descriptionPage2" id="mV0-I1-bxz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yoz-ea-VDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1981" y="-264"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lvx-GG-p6j">
