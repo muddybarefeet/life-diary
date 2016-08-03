@@ -14,7 +14,7 @@ class Moodlet: NSManagedObject {
 
     convenience init(mood: Float, stored_externally: Bool, context : NSManagedObjectContext){
         
-        if let ent = NSEntityDescription.entityForName("Pin", inManagedObjectContext: context){
+        if let ent = NSEntityDescription.entityForName("Moodlet", inManagedObjectContext: context){
             self.init(entity: ent, insertIntoManagedObjectContext: context)
             self.mood = mood
             self.stored_externally = stored_externally
