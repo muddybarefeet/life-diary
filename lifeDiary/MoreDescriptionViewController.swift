@@ -25,6 +25,7 @@ class MoreDescriptionViewController: CoreDataViewController, UIImagePickerContro
         
         let newBackButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(self.done))
         self.navigationItem.rightBarButtonItem = newBackButton
+        
     }
     
     //once user added more data then save all data and return to home screen
@@ -37,7 +38,15 @@ class MoreDescriptionViewController: CoreDataViewController, UIImagePickerContro
         } catch {
             print("There was a problem saving the current album to the database")
         }
-        navigationController?.popToRootViewControllerAnimated(true)
+        //navigationController?.popToRootViewControllerAnimated(true)
+        performSegueWithIdentifier("returnToRoot", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "returnToRoot" {
+            let controller = segue.destinationViewController as! HomeViewController
+            controller.today = today
+        }
     }
     
     @IBAction func addPhoto(sender: AnyObject) {

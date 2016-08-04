@@ -40,7 +40,10 @@ class BasicDescriptionViewController: CoreDataViewController {
         } else {
             questionLabel.text = "What was so great about your day?"
         }
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("returning to fn!!!!!!")
     }
     
     //save the answer text to the today object and segue

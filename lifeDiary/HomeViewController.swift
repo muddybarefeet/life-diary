@@ -34,6 +34,15 @@ class HomeViewController: CoreDataViewController {
         
     }
     
+    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
+        print("unwinding")
+        if let basicDescriptionVC = unwindSegue.sourceViewController as? BasicDescriptionViewController {
+            print("Coming from Basic")
+        } else if let moreDescriptionVC = unwindSegue.sourceViewController as? MoreDescriptionViewController {
+            print("Coming from More")
+        }
+    }
+    
     //Todo: Could make a dictionary from 0.0 - 1.0 numbers and the color that they are associated and if the slider value is at that number then use that color? Would it be too jittery? To be tested when get to styling (https://github.com/jonhull/GradientSlider)
     @IBAction func mood(sender: AnyObject) {
         print("slider", slider)

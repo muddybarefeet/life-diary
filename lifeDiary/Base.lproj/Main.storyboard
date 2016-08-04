@@ -96,6 +96,7 @@
         <!--More Description View Controller-->
         <scene sceneID="jMW-a9-r8w">
             <objects>
+                <exit id="qQd-ME-Xid" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gD3-SF-vVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZUc-KW-WLP" customClass="MoreDescriptionViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
@@ -144,6 +145,7 @@
                     <connections>
                         <outlet property="descriptionText" destination="Dn6-dx-UvO" id="pcH-XN-Qlh"/>
                         <outlet property="imageView" destination="xOZ-Jz-lEq" id="Lmj-bS-hWf"/>
+                        <segue destination="qQd-ME-Xid" kind="unwind" identifier="returnToRoot" unwindAction="unwindToHome:" id="I3n-4C-7yp"/>
                     </connections>
                 </viewController>
             </objects>
@@ -182,6 +184,7 @@
                                 </state>
                                 <connections>
                                     <action selector="doneButton:" destination="Til-Hx-VMp" eventType="touchUpInside" id="xjB-J8-uLi"/>
+                                    <segue destination="n5n-9b-lvL" kind="unwind" unwindAction="unwindToHome:" id="KLD-bg-hdN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-BH-96C">
@@ -213,6 +216,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoz-ea-VDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="n5n-9b-lvL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1981" y="-264"/>
         </scene>
