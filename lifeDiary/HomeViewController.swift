@@ -34,14 +34,17 @@ class HomeViewController: CoreDataViewController {
         
     }
     
-    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
-        print("unwinding")
-        if let basicDescriptionVC = unwindSegue.sourceViewController as? BasicDescriptionViewController {
-            print("Coming from Basic")
-        } else if let moreDescriptionVC = unwindSegue.sourceViewController as? MoreDescriptionViewController {
-            print("Coming from More")
-        }
-    }
+//    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
+//        //returning to this VC from another page and with the updated today object I wan to 
+//        //show label with cutom text depending on what mood like (in the how was your day label)
+//        //have an edit button to return to how it was when there was not an object defined
+//        if unwindSegue.sourceViewController is BasicDescriptionViewController {
+//            print("Coming from Basic")
+//            greeting.hidden = true
+//        } else if unwindSegue.sourceViewController is MoreDescriptionViewController {
+//            print("Coming from More")
+//        }
+//    }
     
     //Todo: Could make a dictionary from 0.0 - 1.0 numbers and the color that they are associated and if the slider value is at that number then use that color? Would it be too jittery? To be tested when get to styling (https://github.com/jonhull/GradientSlider)
     @IBAction func mood(sender: AnyObject) {

@@ -42,10 +42,6 @@ class BasicDescriptionViewController: CoreDataViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        print("returning to fn!!!!!!")
-    }
-    
     //save the answer text to the today object and segue
     @IBAction func nextButton(sender: AnyObject) {
         print("sender text", answerText.text)
@@ -62,8 +58,8 @@ class BasicDescriptionViewController: CoreDataViewController {
         if segue.identifier == "descriptionPage2" {
             let controller = segue.destinationViewController as! MoreDescriptionViewController
             controller.today = today
-        } else if segue.identifier == "returnToRoot" {
-            let controller = segue.destinationViewController as! HomeViewController
+        } else if segue.identifier == "done" {
+            let controller = segue.destinationViewController as! CompletionViewController
             controller.today = today
         }
     }
@@ -79,7 +75,7 @@ class BasicDescriptionViewController: CoreDataViewController {
             } catch {
                 print("There was a problem saving the current album to the database")
             }
-            performSegueWithIdentifier("returnToRoot", sender: nil)
+            performSegueWithIdentifier("done", sender: nil)
         }
     }
     

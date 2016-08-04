@@ -96,7 +96,6 @@
         <!--More Description View Controller-->
         <scene sceneID="jMW-a9-r8w">
             <objects>
-                <exit id="qQd-ME-Xid" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gD3-SF-vVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZUc-KW-WLP" customClass="MoreDescriptionViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
@@ -126,15 +125,24 @@
                                     <action selector="addPhoto:" destination="ZUc-KW-WLP" eventType="touchUpInside" id="yAA-MP-CeB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca1-fd-gbE">
+                                <rect key="frame" x="282" y="507" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="done:" destination="ZUc-KW-WLP" eventType="touchUpInside" id="2ga-xW-9Ax"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.94302138069999997" blue="0.6224071471" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="g3y-b8-dYJ" firstAttribute="top" secondItem="Dn6-dx-UvO" secondAttribute="bottom" constant="52" id="3Z9-68-NCA"/>
+                            <constraint firstItem="g3y-b8-dYJ" firstAttribute="top" secondItem="Ca1-fd-gbE" secondAttribute="bottom" constant="19" id="APe-mz-O2x"/>
                             <constraint firstItem="YZk-lO-g9I" firstAttribute="centerX" secondItem="190-5a-CWt" secondAttribute="centerX" id="E0N-sh-1j7"/>
                             <constraint firstItem="Dn6-dx-UvO" firstAttribute="top" secondItem="nTd-hE-UJN" secondAttribute="bottom" constant="259" id="Gsi-IJ-5WJ"/>
                             <constraint firstItem="Dn6-dx-UvO" firstAttribute="centerX" secondItem="190-5a-CWt" secondAttribute="centerX" id="JEZ-Pi-XOY"/>
                             <constraint firstItem="YZk-lO-g9I" firstAttribute="top" secondItem="xOZ-Jz-lEq" secondAttribute="bottom" constant="8" id="VAJ-jg-t3O"/>
                             <constraint firstItem="xOZ-Jz-lEq" firstAttribute="centerX" secondItem="190-5a-CWt" secondAttribute="centerX" id="dXE-S9-SJ4"/>
+                            <constraint firstItem="Ca1-fd-gbE" firstAttribute="centerX" secondItem="190-5a-CWt" secondAttribute="centerX" id="fWh-hx-mcv"/>
                             <constraint firstItem="Dn6-dx-UvO" firstAttribute="top" secondItem="xOZ-Jz-lEq" secondAttribute="bottom" constant="63" id="upp-eZ-93Y"/>
                             <constraint firstItem="xOZ-Jz-lEq" firstAttribute="leading" secondItem="Dn6-dx-UvO" secondAttribute="leading" constant="46" id="vIv-dL-PEB"/>
                             <constraint firstItem="xOZ-Jz-lEq" firstAttribute="top" secondItem="nTd-hE-UJN" secondAttribute="bottom" constant="51" id="z7P-U4-li2"/>
@@ -145,11 +153,50 @@
                     <connections>
                         <outlet property="descriptionText" destination="Dn6-dx-UvO" id="pcH-XN-Qlh"/>
                         <outlet property="imageView" destination="xOZ-Jz-lEq" id="Lmj-bS-hWf"/>
-                        <segue destination="qQd-ME-Xid" kind="unwind" identifier="returnToRoot" unwindAction="unwindToHome:" id="I3n-4C-7yp"/>
+                        <segue destination="nx1-bO-j6b" kind="show" identifier="done" id="tfy-ET-Cwu"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2815" y="-264"/>
+            <point key="canvasLocation" x="3083" y="-1160"/>
+        </scene>
+        <!--Completion View Controller-->
+        <scene sceneID="PGw-vV-G7m">
+            <objects>
+                <viewController id="nx1-bO-j6b" customClass="CompletionViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fky-vU-bxY"/>
+                        <viewControllerLayoutGuide type="bottom" id="6uq-qh-IHI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ahm-HU-Uaj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment about day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q89-HS-Klj">
+                                <rect key="frame" x="222" y="240" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6t-bf-nEw">
+                                <rect key="frame" x="285" y="385" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="home:" destination="nx1-bO-j6b" eventType="touchUpInside" id="jSh-Er-J3w"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r6t-bf-nEw" firstAttribute="centerY" secondItem="ahm-HU-Uaj" secondAttribute="centerY" constant="100" id="6N4-9W-251"/>
+                            <constraint firstItem="q89-HS-Klj" firstAttribute="centerY" secondItem="ahm-HU-Uaj" secondAttribute="centerY" constant="-50" id="GZR-NJ-054"/>
+                            <constraint firstItem="q89-HS-Klj" firstAttribute="centerX" secondItem="ahm-HU-Uaj" secondAttribute="centerX" id="mum-mT-4GD"/>
+                            <constraint firstItem="r6t-bf-nEw" firstAttribute="centerX" secondItem="ahm-HU-Uaj" secondAttribute="centerX" id="ogQ-Kn-YFn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="43o-R7-7Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3951" y="-604"/>
         </scene>
         <!--Basic Description View Controller-->
         <scene sceneID="S6B-DT-GMb">
@@ -212,13 +259,12 @@
                         <outlet property="answerText" destination="Sq3-Fz-pX2" id="O4v-ot-1cp"/>
                         <outlet property="questionLabel" destination="Zwj-cc-2n0" id="WX6-eY-onG"/>
                         <segue destination="ZUc-KW-WLP" kind="show" identifier="descriptionPage2" id="mV0-I1-bxz"/>
-                        <segue destination="n5n-9b-lvL" kind="unwind" identifier="returnToRoot" unwindAction="unwindToHome:" id="VmW-iS-R6h"/>
+                        <segue destination="nx1-bO-j6b" kind="show" identifier="done" id="Bn9-nx-pxr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoz-ea-VDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="n5n-9b-lvL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1981" y="-264"/>
+            <point key="canvasLocation" x="2101" y="-604"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lvx-GG-p6j">
@@ -260,4 +306,7 @@
         <image name="camera" width="42" height="42"/>
         <image name="placeholder" width="426" height="266"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Bn9-nx-pxr"/>
+    </inferredMetricsTieBreakers>
 </document>

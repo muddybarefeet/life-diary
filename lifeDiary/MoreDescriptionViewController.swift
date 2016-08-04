@@ -23,30 +23,9 @@ class MoreDescriptionViewController: CoreDataViewController, UIImagePickerContro
         print("more descrption loaded")
         descriptionText.delegate = self
         
-        let newBackButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(self.done))
-        self.navigationItem.rightBarButtonItem = newBackButton
+//        let newBackButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(self.done))
+//        self.navigationItem.rightBarButtonItem = newBackButton
         
-    }
-    
-    //once user added more data then save all data and return to home screen
-    func done () {
-        //TODO: do I want to check with the user if one area is empty?
-        today?.long_text = descriptionText.text
-        today?.photo = UIImagePNGRepresentation(imageView.image!)!
-        do {
-            try today?.managedObjectContext?.save()
-        } catch {
-            print("There was a problem saving the current album to the database")
-        }
-        //navigationController?.popToRootViewControllerAnimated(true)
-        performSegueWithIdentifier("returnToRoot", sender: nil)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "returnToRoot" {
-            let controller = segue.destinationViewController as! HomeViewController
-            controller.today = today
-        }
     }
     
     @IBAction func addPhoto(sender: AnyObject) {
@@ -67,6 +46,25 @@ class MoreDescriptionViewController: CoreDataViewController, UIImagePickerContro
         }
     }
     
+    @IBAction func done(sender: AnyObject) {
+        //TODO: do I want to check with the user if one area is empty?
+        today?.long_text = descriptionText.text
+        today?.photo = UIImagePNGRepresentation(imageView.image!)!
+        do {
+            try today?.managedObjectContext?.save()
+        } catch {
+            print("There was a problem saving the current album to the database")
+        }
+        //navigationController?.popToRootViewControllerAnimated(true)
+        performSegueWithIdentifier("done", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "done" {
+            let controller = segue.destinationViewController as! CompletionViewController
+            controller.today = today
+        }
+    }
 }
 
 extension MoreDescriptionViewController: UITextViewDelegate {
