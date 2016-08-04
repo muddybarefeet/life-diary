@@ -67,7 +67,6 @@ class BasicDescriptionViewController: CoreDataViewController {
             displayError("Could not find an answer.")
         } else {
             today?.text = answerText.text
-            
             do {
                 try today?.managedObjectContext?.save()
             } catch {

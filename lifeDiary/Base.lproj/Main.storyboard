@@ -96,6 +96,7 @@
         <!--More Description View Controller-->
         <scene sceneID="jMW-a9-r8w">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gD3-SF-vVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZUc-KW-WLP" customClass="MoreDescriptionViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nTd-hE-UJN"/>
@@ -105,7 +106,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dn6-dx-UvO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dn6-dx-UvO">
                                 <rect key="frame" x="141" y="323" width="318" height="176"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -118,7 +119,7 @@
                                 <rect key="frame" x="187" y="115" width="227" height="145"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZk-lO-g9I">
-                                <rect key="frame" x="279" y="167" width="42" height="42"/>
+                                <rect key="frame" x="279" y="268" width="42" height="42"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="addPhoto:" destination="ZUc-KW-WLP" eventType="touchUpInside" id="yAA-MP-CeB"/>
@@ -131,18 +132,20 @@
                             <constraint firstItem="YZk-lO-g9I" firstAttribute="centerX" secondItem="190-5a-CWt" secondAttribute="centerX" id="E0N-sh-1j7"/>
                             <constraint firstItem="Dn6-dx-UvO" firstAttribute="top" secondItem="nTd-hE-UJN" secondAttribute="bottom" constant="259" id="Gsi-IJ-5WJ"/>
                             <constraint firstItem="Dn6-dx-UvO" firstAttribute="centerX" secondItem="190-5a-CWt" secondAttribute="centerX" id="JEZ-Pi-XOY"/>
-                            <constraint firstItem="YZk-lO-g9I" firstAttribute="top" secondItem="xOZ-Jz-lEq" secondAttribute="bottom" constant="-93" id="VAJ-jg-t3O"/>
+                            <constraint firstItem="YZk-lO-g9I" firstAttribute="top" secondItem="xOZ-Jz-lEq" secondAttribute="bottom" constant="8" id="VAJ-jg-t3O"/>
                             <constraint firstItem="xOZ-Jz-lEq" firstAttribute="centerX" secondItem="190-5a-CWt" secondAttribute="centerX" id="dXE-S9-SJ4"/>
                             <constraint firstItem="Dn6-dx-UvO" firstAttribute="top" secondItem="xOZ-Jz-lEq" secondAttribute="bottom" constant="63" id="upp-eZ-93Y"/>
                             <constraint firstItem="xOZ-Jz-lEq" firstAttribute="leading" secondItem="Dn6-dx-UvO" secondAttribute="leading" constant="46" id="vIv-dL-PEB"/>
                             <constraint firstItem="xOZ-Jz-lEq" firstAttribute="top" secondItem="nTd-hE-UJN" secondAttribute="bottom" constant="51" id="z7P-U4-li2"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="descriptionText" destination="Dn6-dx-UvO" id="pcH-XN-Qlh"/>
+                        <outlet property="imageView" destination="xOZ-Jz-lEq" id="Lmj-bS-hWf"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gD3-SF-vVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2815" y="-264"/>
         </scene>
