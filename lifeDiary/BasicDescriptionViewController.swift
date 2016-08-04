@@ -22,7 +22,6 @@ class BasicDescriptionViewController: CoreDataViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded next view", today)
         answerText.delegate = textDelegate
         
         //add logic to assess the question to present to the user:

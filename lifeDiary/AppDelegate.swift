@@ -14,9 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let entries = CoreDataStack(modelName: "Model")!
+    
+    func resetData () {
+        do{
+            try entries.dropAllData()
+        }catch{
+            print("Error droping all objects in DB")
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        resetData()
         entries.autoSave(60)
         return true
     }

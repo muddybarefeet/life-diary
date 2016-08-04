@@ -21,7 +21,6 @@ class HomeViewController: CoreDataViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view controller did load")
         //test exact username returned may wan to slice of some of it
         let user = UIDevice.currentDevice().name
         let deviceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
