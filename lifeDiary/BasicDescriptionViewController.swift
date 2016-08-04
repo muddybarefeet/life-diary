@@ -23,7 +23,7 @@ class BasicDescriptionViewController: CoreDataViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         answerText.delegate = textDelegate
-        
+        answerText.textAlignment = .Center
         //add logic to assess the question to present to the user:
         //if mood < 0.4 ask why the day was so bad
         //if mood === 0.5 ask why there was nothing great about their day

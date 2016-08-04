@@ -36,14 +36,23 @@ class HomeViewController: CoreDataViewController {
     
     //Todo: Could make a dictionary from 0.0 - 1.0 numbers and the color that they are associated and if the slider value is at that number then use that color? Would it be too jittery? To be tested when get to styling (https://github.com/jonhull/GradientSlider)
     @IBAction func mood(sender: AnyObject) {
+        print("slider", slider)
         mood = slider.value
         //view.backgroundColor = UIColor(hue: 0.15, saturation: 1, brightness: 1, alpha: CGFloat(mood!))
         
     }
     
+    //if there has already been a today obj defined then just update the value
     @IBAction func more(sender: AnyObject) {
         //store the object in core data
-        today = Moodlet(mood: slider.value, stored_externally: false, context: fetchedResultsController!.managedObjectContext)
+        if today != nil {
+            print("updating today",today?.mood)
+            today?.mood = mood
+            print("updating today 2",today?.mood)
+        } else {
+            print("making today")
+          today = Moodlet(mood: slider.value, stored_externally: false, context: fetchedResultsController!.managedObjectContext)
+        }
         performSegueWithIdentifier("descriptionPage1", sender: nil)
     }
     
