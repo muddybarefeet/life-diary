@@ -62,6 +62,9 @@ class BasicDescriptionViewController: CoreDataViewController {
         if segue.identifier == "descriptionPage2" {
             let controller = segue.destinationViewController as! MoreDescriptionViewController
             controller.today = today
+        } else if segue.identifier == "returnToRoot" {
+            let controller = segue.destinationViewController as! HomeViewController
+            controller.today = today
         }
     }
     
@@ -76,7 +79,7 @@ class BasicDescriptionViewController: CoreDataViewController {
             } catch {
                 print("There was a problem saving the current album to the database")
             }
-            navigationController?.popToRootViewControllerAnimated(true)
+            performSegueWithIdentifier("returnToRoot", sender: nil)
         }
     }
     

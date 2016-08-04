@@ -184,7 +184,6 @@
                                 </state>
                                 <connections>
                                     <action selector="doneButton:" destination="Til-Hx-VMp" eventType="touchUpInside" id="xjB-J8-uLi"/>
-                                    <segue destination="n5n-9b-lvL" kind="unwind" unwindAction="unwindToHome:" id="KLD-bg-hdN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-BH-96C">
@@ -213,6 +212,7 @@
                         <outlet property="answerText" destination="Sq3-Fz-pX2" id="O4v-ot-1cp"/>
                         <outlet property="questionLabel" destination="Zwj-cc-2n0" id="WX6-eY-onG"/>
                         <segue destination="ZUc-KW-WLP" kind="show" identifier="descriptionPage2" id="mV0-I1-bxz"/>
+                        <segue destination="n5n-9b-lvL" kind="unwind" identifier="returnToRoot" unwindAction="unwindToHome:" id="VmW-iS-R6h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoz-ea-VDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
