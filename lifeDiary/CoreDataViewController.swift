@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CoreDataTravelLocationViewController: UIViewController {
+class CoreDataViewController: UIViewController {
     
     var fetchedResultsController : NSFetchedResultsController?{
         didSet{

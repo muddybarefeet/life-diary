@@ -8,6 +8,15 @@
 
 import UIKit
 
-class MoreDescriptionViewController: CoreDataTravelLocationViewController {
+class MoreDescriptionViewController: CoreDataViewController {
+    
+    var today: Moodlet?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("more descrption loaded")
+    }
+    
+    
     
 }

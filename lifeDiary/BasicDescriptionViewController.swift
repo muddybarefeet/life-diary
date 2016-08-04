@@ -6,16 +6,88 @@
 //  Copyright © 2016 Anna Rogers. All rights reserved.
 //
 
+// to think about: do I want to hide the back buttons on the nav bar?
+//how to return to the home page/what it should look like?
+
 import UIKit
 
-class BasicDescriptionViewController: CoreDataTravelLocationViewController {
+class BasicDescriptionViewController: CoreDataViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerText: UITextField!
+    
     var today: Moodlet?
+    
+    let textDelegate = TextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded next view", today)
+        answerText.delegate = textDelegate
+        
+        //add logic to assess the question to present to the user:
+        //if mood < 0.4 ask why the day was so bad
+        //if mood === 0.5 ask why there was nothing great about their day
+        //if mood >0.6 ask what was great about today
+        guard let today = today else {
+            print("topday object not defined")
+            return
+        }
+        if Double(today.mood!) < 0.4 {
+            questionLabel.text = "What was so bad about today?"
+        } else if Double(today.mood!) >= 0.4 && Double(today.mood!) <= 0.6 {
+            questionLabel.text = "What could have been better about your day?"
+        } else {
+            questionLabel.text = "What was so great about your day?"
+        }
+        
+    }
+    
+    //save the answer text to the today object and segue
+    @IBAction func nextButton(sender: AnyObject) {
+        print("sender text", answerText.text)
+        if answerText.text == "" {
+            displayError("Could not find an answer.")
+        } else {
+            today?.text = answerText.text
+            performSegueWithIdentifier("descriptionPage2", sender: nil)
+        }
+    }
+    
+    //pass the today object to the next controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "descriptionPage2" {
+            let controller = segue.destinationViewController as! MoreDescriptionViewController
+            controller.today = today
+        }
+    }
+    
+    // update object and save before returning to the home page
+    @IBAction func doneButton(sender: AnyObject) {
+        if answerText.text == "" {
+            displayError("Could not find an answer.")
+        } else {
+            today?.text = answerText.text
+            
+            do {
+                try today?.managedObjectContext?.save()
+            } catch {
+                print("There was a problem saving the current album to the database")
+            }
+            navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
+    
+    // function to display error to the user
+    private func displayError (message: String) {
+        let alertController = UIAlertController(title: "Note", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+        }
+        alertController.addAction(OKAction)
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            self.presentViewController(alertController, animated: true, completion:nil)
+        }
     }
     
 }
+

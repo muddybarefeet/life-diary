@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class HomeViewController: CoreDataTravelLocationViewController {
+class HomeViewController: CoreDataViewController {
     
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var slider: UISlider!

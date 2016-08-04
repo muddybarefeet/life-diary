@@ -21,6 +21,7 @@
 		950C35FC1D523390009710DD /* Moodlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35FA1D523390009710DD /* Moodlet.swift */; };
 		950C35FE1D52B012009710DD /* BasicDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35FD1D52B012009710DD /* BasicDescriptionViewController.swift */; };
 		950C36001D52B02A009710DD /* MoreDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35FF1D52B02A009710DD /* MoreDescriptionViewController.swift */; };
+		950C36021D52BBC7009710DD /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C36011D52BBC7009710DD /* TextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		950C35FA1D523390009710DD /* Moodlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moodlet.swift; path = ../Moodlet.swift; sourceTree = "<group>"; };
 		950C35FD1D52B012009710DD /* BasicDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDescriptionViewController.swift; sourceTree = "<group>"; };
 		950C35FF1D52B02A009710DD /* MoreDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDescriptionViewController.swift; sourceTree = "<group>"; };
+		950C36011D52BBC7009710DD /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				950C35F71D522F85009710DD /* CoreDataViewController.swift */,
 				950C35FD1D52B012009710DD /* BasicDescriptionViewController.swift */,
 				950C35FF1D52B02A009710DD /* MoreDescriptionViewController.swift */,
+				950C36011D52BBC7009710DD /* TextFieldDelegate.swift */,
 			);
 			name = collections;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				950C35FE1D52B012009710DD /* BasicDescriptionViewController.swift in Sources */,
 				950C35FC1D523390009710DD /* Moodlet.swift in Sources */,
 				950C35F61D522F38009710DD /* CoreDataStack.swift in Sources */,
+				950C36021D52BBC7009710DD /* TextFieldDelegate.swift in Sources */,
 				950C35F01D522AB5009710DD /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
