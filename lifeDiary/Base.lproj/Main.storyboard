@@ -96,7 +96,6 @@
         <!--More Description View Controller-->
         <scene sceneID="jMW-a9-r8w">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gD3-SF-vVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZUc-KW-WLP" customClass="MoreDescriptionViewController" customModule="lifeDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nTd-hE-UJN"/>
@@ -156,6 +155,7 @@
                         <segue destination="nx1-bO-j6b" kind="show" identifier="done" id="tfy-ET-Cwu"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gD3-SF-vVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3083" y="-1160"/>
         </scene>

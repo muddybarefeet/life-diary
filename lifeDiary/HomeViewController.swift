@@ -21,16 +21,38 @@ class HomeViewController: CoreDataViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //test exact username returned may wan to slice of some of it
-        let user = UIDevice.currentDevice().name
-        let deviceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
-        greeting.text = "Hello " + user + "!"
-        print("user", user, deviceID)
+        /*logic:
+        1.Get time of day and deduce greeting: morning, afternoon, evening
+         Morning:
+            - if no yesterday and no today
+            - if yesterday and no today
+            - if set today and have yesterday
+        Afternoon:
+            - if today obj
+            - if no today obj
+        Evening:
+            - no today object
+            - today object set
         
-        let data = app.entries
-        let fetchRequest = NSFetchRequest(entityName: "Moodlet")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: true)]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: data.context, sectionNameKeyPath: nil, cacheName: nil)
+        */
+        
+        //get hour
+        let hour = NSCalendar.currentCalendar().component(.Hour, fromDate: NSDate()) //return the int representing the hour
+        
+        let user = UIDevice.currentDevice().name
+        
+        if hour < 12 {
+            greeting.text = "Good Morning " + user
+        } else if hour >= 12 && hour <= 17 {
+            greeting.text = "Good Afternoon " + user
+        } else {
+            greeting.text = "Good Evening " + user
+        }
+        
+//        let data = app.entries
+//        let fetchRequest = NSFetchRequest(entityName: "Moodlet")
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: true)]
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: data.context, sectionNameKeyPath: nil, cacheName: nil)
         
     }
     
