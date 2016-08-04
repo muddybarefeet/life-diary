@@ -19,6 +19,7 @@ class MoreDescriptionViewController: CoreDataViewController, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         print("more descrption loaded")
         descriptionText.delegate = self
         

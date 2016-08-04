@@ -22,6 +22,7 @@ class BasicDescriptionViewController: CoreDataViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         answerText.delegate = textDelegate
         answerText.textAlignment = .Center
         //add logic to assess the question to present to the user:
