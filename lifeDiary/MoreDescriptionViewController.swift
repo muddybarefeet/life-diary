@@ -22,9 +22,8 @@ class MoreDescriptionViewController: CoreDataViewController, UIImagePickerContro
         print("more descrption loaded")
         descriptionText.delegate = self
         
-        let newBackButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Done"), style: .Plain, target: self, action: #selector(self.done))
+        let newBackButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(self.done))
         self.navigationItem.rightBarButtonItem = newBackButton
-
     }
     
     //once user added more data then save all data and return to home screen
