@@ -36,23 +36,55 @@ class HomeViewController: CoreDataViewController {
         
         */
         
-        //get hour
+        //1. determine the time of day
         let hour = NSCalendar.currentCalendar().component(.Hour, fromDate: NSDate()) //return the int representing the hour
         
         let user = UIDevice.currentDevice().name
         
+        let data = app.entries
+        let fetchRequest = NSFetchRequest(entityName: "Moodlet")
+        //order by created at - first on being the latest added
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: false)]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: data.context, sectionNameKeyPath: nil, cacheName: nil)
+        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let entities = fetchedResultsController!.fetchedObjects as! [Moodlet]
+        let lastSavedTime = entities[0].created_at
+        
         if hour < 12 {
+            //set greeting
             greeting.text = "Good Morning " + user
+            
+            //if has something saved for both today and yesterday
+            if calendar.isDateInToday(lastSavedTime!) && calendar.isDateInYesterday(entities[1].created_at!) {
+                //1. Then show goal if have one else just show random quote
+                
+            } else if calendar.isDateInYesterday(lastSavedTime!) {
+                //if yesterday was the last day saved: then ask about goal for day
+                
+            } else {
+                //neither were saved show slider for yesterday and ask about goal
+                
+            }
+            
         } else if hour >= 12 && hour <= 17 {
             greeting.text = "Good Afternoon " + user
+            //if there is an object saved for today
+            if calendar.isDateInToday(lastSavedTime!) {
+                //if there is a goal set then show something about this
+                
+            } else {
+                //just show quote
+            }
+            
         } else {
             greeting.text = "Good Evening " + user
+            //if there is an object saved for today
+            if calendar.isDateInToday(lastSavedTime!) {
+                
+            } else {
+                //if no object they make a new one
+            }
         }
-        
-//        let data = app.entries
-//        let fetchRequest = NSFetchRequest(entityName: "Moodlet")
-//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: true)]
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: data.context, sectionNameKeyPath: nil, cacheName: nil)
         
     }
     
@@ -85,7 +117,7 @@ class HomeViewController: CoreDataViewController {
             print("updating today 2",today?.mood)
         } else {
             print("making today")
-          today = Moodlet(mood: slider.value, stored_externally: false, context: fetchedResultsController!.managedObjectContext)
+            today = Moodlet(mood: slider.value, stored_externally: false, context: fetchedResultsController!.managedObjectContext)
         }
         performSegueWithIdentifier("descriptionPage1", sender: nil)
     }
