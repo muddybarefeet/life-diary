@@ -10,13 +10,14 @@ import UIKit
 import CoreData
 
 //TODO: remove duplcate code making UIComponents
+//Todo: Could make a dictionary from 0.0 - 1.0 numbers and the color that they are associated and if the slider value is at that number then use that color? Would it be too jittery? To be tested when get to styling (https://github.com/jonhull/GradientSlider)
+//view.backgroundColor = UIColor(hue: 0.15, saturation: 1, brightness: 1, alpha: CGFloat(mood!))
 
 class HomeViewController: CoreDataViewController, UITextViewDelegate {
     
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var nextOrDone: UIButton!
 
-    
     var today: Moodlet?
     var mood: Float?
     
@@ -64,7 +65,7 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
             //if has something saved for both today and yesterday
             if calendar.isDateInToday(lastSavedTime!) && calendar.isDateInYesterday(entities[1].created_at!) {
                 nextOrDone.hidden = true
-                print("have a today and yesterday and it it morning")
+                print("MORNING have a today and yesterday and it it morning")
                 today = entities[0]
                 
                 //1. TODO: show goal
@@ -78,8 +79,7 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
                 self.view.addSubview(label)
                 
             } else if calendar.isDateInYesterday(lastSavedTime!) {
-                print("yesterday and it it morning")
-                today = nil
+                print("MORNING: yesterday and it it morning")
                 nextOrDone.setTitle("Done", forState: .Normal)
                 
                 //TODO: make a key on the model to store this data point
@@ -96,26 +96,11 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
                 self.view.addSubview(textView)
                 
             } else {
-                print("no today or yesterday saved")
+                print("MORNING: no today or yesterday saved")
                 //neither were saved show slider for yesterday and ask about goal
                 nextOrDone.setTitle("Done", forState: .Normal)
                 //make and display question and slider and the how would today be good question
-                let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height))
-                label.textAlignment = NSTextAlignment.Center
-                label.numberOfLines = 0
-                label.font = UIFont.systemFontOfSize(16.0)
-                label.text = "How did yesterday shape up to be?"
-                self.view.addSubview(label);
-                //if yesterday was the last day saved: then ask about goal for day
-                let slider = UISlider(frame:CGRectMake(self.view.bounds.size.width/7, 260, 280, 20))
-                slider.minimumValue = 0
-                slider.maximumValue = 100
-                slider.continuous = true
-                slider.tintColor = UIColor.redColor()
-                slider.value = 50
-                
-                slider.addTarget(self, action: #selector(HomeViewController.setSliderValue), forControlEvents: .ValueChanged)
-                self.view.addSubview(slider)
+                showSliderAndQuestion("How did yesterday shape up to be?")
                 
                 let label2:UILabel = UILabel(frame: CGRectMake(0, -20, self.view.bounds.size.width, self.view.bounds.size.height))
                 label2.textAlignment = NSTextAlignment.Center
@@ -136,9 +121,11 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
             greeting.text = "Good Afternoon " + user
             //if there is an object saved for today
             if calendar.isDateInToday(lastSavedTime!) {
+                print("afternoon and object")
                 //TODO: if there is a goal set then show something about this
                 getQuote()
             } else {
+                print("afternoon and NO object")
                 //show quote
                 getQuote()
             }
@@ -151,16 +138,27 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
                 print("evening and there is a today obj")
                 //TODO: MOVE TO NEXT PAGE if there was a goal set then asked it that was achieved
                 today = entities[0]
+
+                //if yes then just show a quote and some comment
+                if today?.mood != nil {
+                    //TODO: display something about aims/how day was
+                    
+                } else {
+                    //if the mood has not been set then they want to set
+                    showSliderAndQuestion("How was your day?")
+                }
                 
             } else {
                 print("evening and no today obj")
                 today = nil
-                
+                //if the mood has not been set then they want to set
+                showSliderAndQuestion("How was your day?")
             }
         }
         
     }
     
+    //show quote component
     func getQuote () {
         Quote.getInspirationalQuote() { (data, error) in
             if error == nil {
@@ -189,56 +187,54 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
             } else {
                 print("error", error)
             }
-            
         }
     }
     
-    func setSliderValue (sender:UISlider!) {
-        print("slider clicked")
-       //mood = slider.value
+    //show slider component
+    func showSliderAndQuestion (question: String) {
+        let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height))
+        label.textAlignment = NSTextAlignment.Center
+        label.numberOfLines = 0
+        label.font = UIFont.systemFontOfSize(16.0)
+        label.text = question
+        self.view.addSubview(label);
+        //if yesterday was the last day saved: then ask about goal for day
+        let slider = UISlider(frame:CGRectMake(self.view.bounds.size.width/7, 260, 280, 20))
+        slider.minimumValue = 0
+        slider.maximumValue = 100
+        slider.continuous = true
+        slider.tintColor = UIColor.redColor()
+        slider.value = 50
+        slider.addTarget(self, action: #selector(HomeViewController.setSliderValue), forControlEvents: .ValueChanged)
+        self.view.addSubview(slider)
     }
     
-//    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
-//        //returning to this VC from another page and with the updated today object I wan to
-//        //show label with cutom text depending on what mood like (in the how was your day label)
-//        //have an edit button to return to how it was when there was not an object defined
-//        if unwindSegue.sourceViewController is BasicDescriptionViewController {
-//            print("Coming from Basic")
-//            greeting.hidden = true
-//        } else if unwindSegue.sourceViewController is MoreDescriptionViewController {
-//            print("Coming from More")
-//        }
-//    }
-    
-    //Todo: Could make a dictionary from 0.0 - 1.0 numbers and the color that they are associated and if the slider value is at that number then use that color? Would it be too jittery? To be tested when get to styling (https://github.com/jonhull/GradientSlider)
-
-    //    @IBAction func mood (sender: AnyObject) {
-//        print("slider", slider)
-//        mood = slider.value
-//        //view.backgroundColor = UIColor(hue: 0.15, saturation: 1, brightness: 1, alpha: CGFloat(mood!))
-//    }
+    func setSliderValue (sender: UISlider!) {
+        print("slider clicked")
+       mood = sender.value
+    }
     
     //if there has already been a today obj defined then just update the value
-//    @IBAction func nextPage (sender: AnyObject) {
-//        //store the object in core data
-//        if today != nil {
-//            print("updating today",today?.mood)
-//            today?.mood = mood
-//            print("updating today 2",today?.mood)
-//        } else {
-//            //TODO: add in the storing of a goal if wanted/need to think on naming/what this is asking
-//            today = Moodlet(mood: slider.value, stored_externally: false, context: fetchedResultsController!.managedObjectContext)
-//        }
-//        performSegueWithIdentifier("descriptionPage1", sender: nil)
-//    }
+    @IBAction func nextPage (sender: AnyObject) {
+        //store the object in core data
+        if today != nil {
+            print("updating today",today?.mood)
+            today?.mood = mood
+            print("updating today 2",today?.mood)
+        } else {
+            //TODO: add in the storing of a goal if wanted/need to think on naming/what this is asking
+            today = Moodlet(mood: mood!, stored_externally: false, context: fetchedResultsController!.managedObjectContext)
+        }
+        performSegueWithIdentifier("descriptionPage1", sender: nil)
+    }
     
     //coords passed to the new controller
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if segue.identifier == "descriptionPage1" {
-//            let controller = segue.destinationViewController as! BasicDescriptionViewController
-//            controller.today = today
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "descriptionPage1" {
+            let controller = segue.destinationViewController as! BasicDescriptionViewController
+            controller.today = today
+        }
+    }
     
     func textViewDidBeginEditing(textView: UITextView) {
         print("started typing")
@@ -262,5 +258,17 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
     }
     
 }
+
+//    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
+//        //returning to this VC from another page and with the updated today object I wan to
+//        //show label with cutom text depending on what mood like (in the how was your day label)
+//        //have an edit button to return to how it was when there was not an object defined
+//        if unwindSegue.sourceViewController is BasicDescriptionViewController {
+//            print("Coming from Basic")
+//            greeting.hidden = true
+//        } else if unwindSegue.sourceViewController is MoreDescriptionViewController {
+//            print("Coming from More")
+//        }
+//    }
 
 
