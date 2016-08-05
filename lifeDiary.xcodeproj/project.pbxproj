@@ -23,6 +23,7 @@
 		950C36001D52B02A009710DD /* MoreDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C35FF1D52B02A009710DD /* MoreDescriptionViewController.swift */; };
 		950C36021D52BBC7009710DD /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C36011D52BBC7009710DD /* TextFieldDelegate.swift */; };
 		950C36041D5381AA009710DD /* CompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C36031D5381AA009710DD /* CompletionViewController.swift */; };
+		950C36071D54052E009710DD /* TheySaidSoQuoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C36061D54052E009710DD /* TheySaidSoQuoteClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		950C35FF1D52B02A009710DD /* MoreDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDescriptionViewController.swift; sourceTree = "<group>"; };
 		950C36011D52BBC7009710DD /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		950C36031D5381AA009710DD /* CompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionViewController.swift; sourceTree = "<group>"; };
+		950C36061D54052E009710DD /* TheySaidSoQuoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheySaidSoQuoteClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +117,9 @@
 		950C35B91D5222E2009710DD /* lifeDiary */ = {
 			isa = PBXGroup;
 			children = (
-				950C35ED1D522A9D009710DD /* models */,
-				950C35E81D52252A009710DD /* collections */,
+				950C36051D5404F3009710DD /* Clients */,
+				950C35ED1D522A9D009710DD /* Models */,
+				950C35E81D52252A009710DD /* Collections */,
 				950C35BA1D5222E2009710DD /* AppDelegate.swift */,
 				950C35BE1D5222E2009710DD /* Main.storyboard */,
 				950C35C11D5222E2009710DD /* Assets.xcassets */,
@@ -144,7 +147,7 @@
 			path = lifeDiaryUITests;
 			sourceTree = "<group>";
 		};
-		950C35E81D52252A009710DD /* collections */ = {
+		950C35E81D52252A009710DD /* Collections */ = {
 			isa = PBXGroup;
 			children = (
 				950C35EA1D52255B009710DD /* HomeViewController.swift */,
@@ -154,10 +157,10 @@
 				950C36011D52BBC7009710DD /* TextFieldDelegate.swift */,
 				950C36031D5381AA009710DD /* CompletionViewController.swift */,
 			);
-			name = collections;
+			name = Collections;
 			sourceTree = "<group>";
 		};
-		950C35ED1D522A9D009710DD /* models */ = {
+		950C35ED1D522A9D009710DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				950C35F91D523390009710DD /* Moodlet+CoreDataProperties.swift */,
@@ -165,7 +168,15 @@
 				950C35EE1D522AB5009710DD /* Model.xcdatamodeld */,
 				950C35F51D522F38009710DD /* CoreDataStack.swift */,
 			);
-			name = models;
+			name = Models;
+			sourceTree = "<group>";
+		};
+		950C36051D5404F3009710DD /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				950C36061D54052E009710DD /* TheySaidSoQuoteClient.swift */,
+			);
+			name = Clients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950C36071D54052E009710DD /* TheySaidSoQuoteClient.swift in Sources */,
 				950C35EB1D52255B009710DD /* HomeViewController.swift in Sources */,
 				950C35BB1D5222E2009710DD /* AppDelegate.swift in Sources */,
 				950C35FB1D523390009710DD /* Moodlet+CoreDataProperties.swift in Sources */,
@@ -539,6 +551,7 @@
 				950C35E11D5222E2009710DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		950C35E21D5222E2009710DD /* Build configuration list for PBXNativeTarget "lifeDiaryTests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +560,7 @@
 				950C35E41D5222E2009710DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		950C35E51D5222E2009710DD /* Build configuration list for PBXNativeTarget "lifeDiaryUITests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +569,7 @@
 				950C35E71D5222E2009710DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

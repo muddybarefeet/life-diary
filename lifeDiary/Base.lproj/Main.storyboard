@@ -36,56 +36,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your day?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQS-SR-5hZ">
-                                <rect key="frame" x="226" y="213" width="148" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zY-AA-hpn">
-                                <rect key="frame" x="281" y="166" width="39" height="21"/>
+                                <rect key="frame" x="281" y="139" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="29D-Eh-hUT">
-                                <rect key="frame" x="192" y="285" width="217" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="213" id="Hem-uw-EtO"/>
-                                </constraints>
-                                <color key="minimumTrackTintColor" red="0.92569944370000001" green="0.84405267190995092" blue="0.017573346563762558" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" red="0.11615182426819851" green="0.39091296030430245" blue="0.92569944370000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="mood:" destination="fPP-7C-7ya" eventType="valueChanged" id="7z9-bw-Rk7"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llk-Vm-hSO">
                                 <rect key="frame" x="284" y="463" width="32" height="30"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="more:" destination="fPP-7C-7ya" eventType="touchUpInside" id="U8e-9S-60C"/>
+                                    <action selector="nextPage:" destination="fPP-7C-7ya" eventType="touchUpInside" id="O3r-77-to1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14921095749999999" green="0.76621809549999997" blue="0.72552637880000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="29D-Eh-hUT" firstAttribute="centerX" secondItem="rG6-Q5-J6I" secondAttribute="centerX" id="1YA-IM-zdm"/>
-                            <constraint firstItem="29D-Eh-hUT" firstAttribute="top" secondItem="rQS-SR-5hZ" secondAttribute="bottom" constant="51" id="ALH-PH-p29"/>
                             <constraint firstItem="Z6R-ea-0hA" firstAttribute="top" secondItem="llk-Vm-hSO" secondAttribute="bottom" constant="58" id="Etd-rG-45Y"/>
-                            <constraint firstItem="rQS-SR-5hZ" firstAttribute="centerX" secondItem="rG6-Q5-J6I" secondAttribute="centerX" id="HdQ-kN-wfc"/>
                             <constraint firstItem="llk-Vm-hSO" firstAttribute="centerX" secondItem="rG6-Q5-J6I" secondAttribute="centerX" id="JAY-ma-2aY"/>
-                            <constraint firstItem="7zY-AA-hpn" firstAttribute="top" secondItem="Vbd-rQ-fTL" secondAttribute="bottom" constant="102" id="cbB-xS-iLP"/>
-                            <constraint firstItem="7zY-AA-hpn" firstAttribute="centerX" secondItem="29D-Eh-hUT" secondAttribute="centerX" id="seg-nJ-VUJ"/>
-                            <constraint firstItem="rQS-SR-5hZ" firstAttribute="top" secondItem="7zY-AA-hpn" secondAttribute="bottom" constant="26" id="ujI-go-tPX"/>
+                            <constraint firstItem="7zY-AA-hpn" firstAttribute="top" secondItem="Vbd-rQ-fTL" secondAttribute="bottom" constant="75" id="cbB-xS-iLP"/>
                             <constraint firstItem="7zY-AA-hpn" firstAttribute="centerX" secondItem="rG6-Q5-J6I" secondAttribute="centerX" id="vDd-7D-Npx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="awR-Q6-0cR"/>
                     <connections>
                         <outlet property="greeting" destination="7zY-AA-hpn" id="Wbo-1f-Q7D"/>
-                        <outlet property="slider" destination="29D-Eh-hUT" id="nh5-m2-rem"/>
+                        <outlet property="nextOrDone" destination="llk-Vm-hSO" id="cJ7-nw-gEm"/>
                         <segue destination="Til-Hx-VMp" kind="show" identifier="descriptionPage1" id="9hh-Ej-heD"/>
                     </connections>
                 </viewController>
