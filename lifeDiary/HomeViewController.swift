@@ -64,46 +64,46 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
             //if has something saved for both today and yesterday
             if calendar.isDateInToday(lastSavedTime!) && calendar.isDateInYesterday(entities[1].created_at!) {
                 nextOrDone.hidden = true
-                
                 print("have a today and yesterday and it it morning")
-                //1. Then show goal if have one else just show random quote
                 today = entities[0]
                 
-                //TODO: QUOTE
+                //1. TODO: show goal
+                getQuote()
                 
-                let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height));
-                label.textAlignment = NSTextAlignment.Center;
-                label.numberOfLines = 0;
-                label.font = UIFont.systemFontOfSize(16.0);
+                let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height))
+                label.textAlignment = NSTextAlignment.Center
+                label.numberOfLines = 0
+                label.font = UIFont.systemFontOfSize(16.0)
                 label.text = "TODO: Prompt/reminder about how you wanted your day to be a good day"
-                self.view.addSubview(label);
+                self.view.addSubview(label)
                 
             } else if calendar.isDateInYesterday(lastSavedTime!) {
                 print("yesterday and it it morning")
                 today = nil
                 nextOrDone.setTitle("Done", forState: .Normal)
+                
                 //TODO: make a key on the model to store this data point
-                let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height));
-                label.textAlignment = NSTextAlignment.Center;
-                label.numberOfLines = 0;
-                label.font = UIFont.systemFontOfSize(16.0);
+                let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height))
+                label.textAlignment = NSTextAlignment.Center
+                label.numberOfLines = 0
+                label.font = UIFont.systemFontOfSize(16.0)
                 label.text = "Take one minute to think about today. What can you do to make today a good day?"
-                self.view.addSubview(label);
+                self.view.addSubview(label)
                 
                 let textView: UITextView = UITextView(frame: CGRectMake(0,300, self.view.bounds.size.width, 100))
                 textView.delegate = self
                 textView.textAlignment = NSTextAlignment.Center
-                self.view.addSubview(textView);
+                self.view.addSubview(textView)
                 
             } else {
                 print("no today or yesterday saved")
                 //neither were saved show slider for yesterday and ask about goal
                 nextOrDone.setTitle("Done", forState: .Normal)
                 //make and display question and slider and the how would today be good question
-                let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height));
-                label.textAlignment = NSTextAlignment.Center;
-                label.numberOfLines = 0;
-                label.font = UIFont.systemFontOfSize(16.0);
+                let label:UILabel = UILabel(frame: CGRectMake(0,-150, self.view.bounds.size.width, self.view.bounds.size.height))
+                label.textAlignment = NSTextAlignment.Center
+                label.numberOfLines = 0
+                label.font = UIFont.systemFontOfSize(16.0)
                 label.text = "How did yesterday shape up to be?"
                 self.view.addSubview(label);
                 //if yesterday was the last day saved: then ask about goal for day
@@ -117,17 +117,17 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
                 slider.addTarget(self, action: #selector(HomeViewController.setSliderValue), forControlEvents: .ValueChanged)
                 self.view.addSubview(slider)
                 
-                let label2:UILabel = UILabel(frame: CGRectMake(0, -20, self.view.bounds.size.width, self.view.bounds.size.height));
-                label2.textAlignment = NSTextAlignment.Center;
-                label2.numberOfLines = 0;
-                label2.font = UIFont.systemFontOfSize(16.0);
+                let label2:UILabel = UILabel(frame: CGRectMake(0, -20, self.view.bounds.size.width, self.view.bounds.size.height))
+                label2.textAlignment = NSTextAlignment.Center
+                label2.numberOfLines = 0
+                label2.font = UIFont.systemFontOfSize(16.0)
                 label2.text = "Take one minute to think about today. What can you do to make today a good day?"
-                self.view.addSubview(label2);
+                self.view.addSubview(label2)
                 
                 let textView: UITextView = UITextView(frame: CGRectMake(0,400, self.view.bounds.size.width, 100))
                 textView.delegate = self
                 textView.textAlignment = NSTextAlignment.Center
-                self.view.addSubview(textView);
+                self.view.addSubview(textView)
 
             }
             
@@ -136,20 +136,11 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
             greeting.text = "Good Afternoon " + user
             //if there is an object saved for today
             if calendar.isDateInToday(lastSavedTime!) {
-                print("afternoon and have a today object")
-                //if there is a goal set then show something about this
-                Quote.getInspirationalQuote() { (data, error) in
-                    print("getting results")
-                    if error == nil {
-                        print("results-----todo")
-                    } else {
-                       print("error", error)
-                    }
-                }
+                //TODO: if there is a goal set then show something about this
+                getQuote()
             } else {
-                //just show quote
-                print("afternoon and no today obj")
-                
+                //show quote
+                getQuote()
             }
             
         } else {
@@ -160,12 +151,46 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
                 print("evening and there is a today obj")
                 //TODO: MOVE TO NEXT PAGE if there was a goal set then asked it that was achieved
                 today = entities[0]
+                
             } else {
                 print("evening and no today obj")
                 today = nil
+                
             }
         }
         
+    }
+    
+    func getQuote () {
+        Quote.getInspirationalQuote() { (data, error) in
+            if error == nil {
+                var fetchedQuote: String = ""
+                var quoteAuthor: String = ""
+                if let quote = data!["quote"] as? String {
+                    fetchedQuote = quote
+                }
+                if let author = data!["author"] as? String {
+                    quoteAuthor = author
+                }
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    let label:UILabel = UILabel(frame: CGRectMake(0,-100, self.view.bounds.size.width, self.view.bounds.size.height))
+                    label.textAlignment = NSTextAlignment.Center
+                    label.numberOfLines = 0
+                    label.font = UIFont.systemFontOfSize(16.0)
+                    label.text = fetchedQuote
+                    self.view.addSubview(label)
+                    
+                    let subLabel = UILabel(frame: CGRectMake(0,-50, self.view.bounds.size.width, self.view.bounds.size.height))
+                    subLabel.textAlignment = NSTextAlignment.Center
+                    subLabel.font = UIFont.systemFontOfSize(12.0)
+                    subLabel.text = quoteAuthor
+                    self.view.addSubview(subLabel)
+                }
+            } else {
+                print("error", error)
+            }
+            
+        }
     }
     
     func setSliderValue (sender:UISlider!) {
@@ -174,7 +199,7 @@ class HomeViewController: CoreDataViewController, UITextViewDelegate {
     }
     
 //    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
-//        //returning to this VC from another page and with the updated today object I wan to 
+//        //returning to this VC from another page and with the updated today object I wan to
 //        //show label with cutom text depending on what mood like (in the how was your day label)
 //        //have an edit button to return to how it was when there was not an object defined
 //        if unwindSegue.sourceViewController is BasicDescriptionViewController {
